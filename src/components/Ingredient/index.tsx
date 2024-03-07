@@ -15,12 +15,12 @@ export function Ingredient({ name, image, selected = false, ...rest }: Ingredien
       {...rest}
     >
       <Image
-        source={require("@/assets/tomato.png")}
+        source={{ uri: image }}
         style={styles.image}
       />
 
       <Text style={styles.title}>
-        Maçã
+        {name}
       </Text>
     </Pressable>
   );
