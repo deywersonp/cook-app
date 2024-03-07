@@ -2,7 +2,7 @@ import { Image, Pressable, PressableProps, Text } from "react-native";
 
 import { styles } from "./styles";
 
-type IngredientProps = {
+export type IngredientProps = {
   name: string;
   image: string;
   selected?: boolean;
