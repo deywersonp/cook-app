@@ -5,11 +5,13 @@ import { router } from "expo-router";
 import { services } from "@/services";
 
 import { Ingredient } from "@/components/Ingredient";
+import { Loading } from "@/components/Loading";
 
 import { styles } from "./styles";
 import { Selected } from "@/components/Selected";
 
 export default function Index() {
+  const [isLoading, setIsLoading] = React.useState(true);
   const [selected, setSelected] = React.useState<string[]>([]);
   const [ingredients, setIngredients] = React.useState<IngredientResponse[]>([]);
 
@@ -33,7 +35,11 @@ export default function Index() {
   }
 
   React.useEffect(() => {
-    services.ingredients.findAll().then(setIngredients);
+    services
+      .ingredients
+      .findAll()
+      .then(setIngredients)
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
@@ -47,28 +53,35 @@ export default function Index() {
         Descubra receitas baseadas nos  {"\n"}produtos que você escolheu.
       </Text>
 
-      <ScrollView
-        contentContainerStyle={styles.ingredients}
-        showsVerticalScrollIndicator={false}
-      >
-        {ingredients.map((item) => (
-          <Ingredient
-            key={item.id}
-            name={item.name}
-            image={`${services.storage.imagePath}/${item.image}`}
-            selected={selected.includes(item.id)}
-            onPress={() => handleToggleSelected(item.id)}
-          />
-        ))}
-      </ScrollView>
+      {isLoading
+        ? (
+          <Loading />
+        ) : (
+          <>
+            <ScrollView
+              contentContainerStyle={styles.ingredients}
+              showsVerticalScrollIndicator={false}
+            >
+              {ingredients.map((item) => (
+                <Ingredient
+                  key={item.id}
+                  name={item.name}
+                  image={`${services.storage.imagePath}/${item.image}`}
+                  selected={selected.includes(item.id)}
+                  onPress={() => handleToggleSelected(item.id)}
+                />
+              ))}
+            </ScrollView>
 
-      {selected.length > 0 && (
-        <Selected
-          quantity={selected.length}
-          onClear={handleClearSelected}
-          onSearch={handleSearch}
-        />
-      )}
+            {selected.length > 0 && (
+              <Selected
+                quantity={selected.length}
+                onClear={handleClearSelected}
+                onSearch={handleSearch}
+              />
+            )}
+          </>
+        )}
     </View>
   );
 }
