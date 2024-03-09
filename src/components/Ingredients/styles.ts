@@ -1,12 +1,18 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
+  horizontalContainer: {
     height: 58,
     maxHeight: 58,
   },
-  ingredientsContent: {
+  horizontalIngredientsContent: {
     gap: 12,
     paddingHorizontal: 32,
   },
-})
+  verticalIngredientsContent: {
+    flexWrap: "wrap",
+    flexDirection: "row",
+    gap: 12,
+    paddingBottom: 20,
+  },
+});

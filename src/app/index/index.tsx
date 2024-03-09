@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, ScrollView, Alert } from "react-native";
+import { View, Text, Alert } from "react-native";
 import { router } from "expo-router";
 
 import { services } from "@/services";
 
-import { Ingredient } from "@/components/Ingredient";
 import { Loading } from "@/components/Loading";
+import { Ingredients } from "@/components/Ingredients";
 
 import { styles } from "./styles";
 import { Selected } from "@/components/Selected";
@@ -58,20 +58,11 @@ export default function Index() {
           <Loading />
         ) : (
           <>
-            <ScrollView
-              contentContainerStyle={styles.ingredients}
-              showsVerticalScrollIndicator={false}
-            >
-              {ingredients.map((item) => (
-                <Ingredient
-                  key={item.id}
-                  name={item.name}
-                  image={`${services.storage.imagePath}/${item.image}`}
-                  selected={selected.includes(item.id)}
-                  onPress={() => handleToggleSelected(item.id)}
-                />
-              ))}
-            </ScrollView>
+            <Ingredients
+              ingredients={ingredients}
+              selected={selected}
+              handleToggleSelected={handleToggleSelected}
+            />
 
             {selected.length > 0 && (
               <Selected

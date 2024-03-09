@@ -50,7 +50,10 @@ export default function Recipes() {
         </Text>
       </View>
 
-      <Ingredients ingredients={ingredients} />
+      <Ingredients
+        horizontal
+        ingredients={ingredients}
+      />
 
       <FlatList
         data={recipes}

@@ -62,7 +62,10 @@ export default function Recipes() {
           <Text style={styles.time}>{recipe.minutes} minutos de preparo</Text>
         </View>
 
-        <Ingredients ingredients={ingredients} />
+        <Ingredients
+          horizontal
+          ingredients={ingredients}
+        />
 
         <View style={styles.content}>
           <Text style={styles.preparation}>Modo de preparado</Text>
