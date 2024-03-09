@@ -61,7 +61,7 @@ export default function Recipes() {
         renderItem={({ item }) => (
           <Recipe
             recipe={item}
-            onPressOut={() => router.navigate("/recipe/" + item.id)}
+            onPress={() => router.navigate("/recipe/" + item.id)}
           />
         )}
         ListEmptyComponent={<Text>Nenhuma receita encontrada</Text>}
