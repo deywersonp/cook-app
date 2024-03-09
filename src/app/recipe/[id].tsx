@@ -69,10 +69,12 @@ export default function Recipes() {
 
           <FlatList
             data={preparations}
+            keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <Step step={item.step} description={item.description} />
             )}
-            contentContainerStyle={{ gap: 16 }}
+            ListEmptyComponent={<Text>Nenhum passo-a-passo encontrado</Text>}
+            contentContainerStyle={styles.preparationContent}
             showsVerticalScrollIndicator={false}
           />
         </View>

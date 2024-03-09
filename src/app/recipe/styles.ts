@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native"
-import { theme } from "@/theme"
+import { StyleSheet } from "react-native";
+import { theme } from "@/theme";
 
 export const styles = StyleSheet.create({
   container: { flex: 1 },
@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.gray_300,
   },
   body: {
+    flex: 1,
     borderTopStartRadius: theme.borderRadius.lg,
     borderTopEndRadius: theme.borderRadius.lg,
     backgroundColor: theme.colors.white,
@@ -18,6 +19,7 @@ export const styles = StyleSheet.create({
     padding: 32,
   },
   content: {
+    flex: 1,
     padding: 32,
   },
   name: {
@@ -30,9 +32,13 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.family.medium,
     marginBottom: 16,
   },
+  preparationContent: {
+    gap: 16,
+    paddingBottom: 20,
+  },
   time: {
     fontSize: theme.fonts.size.body.sm,
     fontFamily: theme.fonts.family.regular,
     color: theme.colors.gray_400,
   },
-})
+});
