@@ -7,5 +7,5 @@
 - Este projeto utiliza [Supabase](https://supabase.com/docs/guides/getting-started/tutorials/with-expo-react-native)
 - Com o Supabase podemos criar SQL query e fazer a chamada dessa função criada com o uso da CLI do Supabase dentro da nossa aplicação. Para ser possível executar, utilizamos o método `.rpc()`, que recebe como parâmetro o nome da função que definimos dentro do painel `SQL Editor` do Supabase.
   ![supabase sql query](/github/image.png)
-- Podemos consultar as imagens criadas no `Supabase`, acessando `Database` -> `Functions`
+- Podemos consultar as funções criadas no `Supabase`, acessando `Database` -> `Functions`
   ![supabase database functions](/github/image-1.png)
